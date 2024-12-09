@@ -1,0 +1,97 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;">
+    <title>XiangQi Wizard Light</title>
+    <meta name="description" content="XiangQi Wizard Light - A Simple but Strong XiangQi (Chinese Chess) AI Algorithm written in JavaScript" />
+    <meta name="keywords" content="Chinese chess, XiangQi, Wizard Light" />
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            background: url(images/background.gif);
+        }
+
+        span.td {
+            display: inline-block;
+        }
+
+        div.label {
+            font-size: 14px;
+            padding: 2px;
+        }
+
+        select {
+            font-size: 14px;
+            width: 108px;
+            padding: 2px;
+        }
+
+        option {
+            font-size: 14px;
+        }
+
+        input.button {
+            font-size: 14px;
+            width: 108px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center;font-size:28px;">XiangQi Wizard Light</div>
+    <div style="height:16px"></div>
+    <div style="text-align:center;white-space:nowrap">
+        <span class="td" style="margin-right:10px">
+            <div id="container"></div>
+        </span><span class="td" style="vertical-align:top;width:120px;">
+            <div style="text-align:left">
+                <div class="label">Who play first?</div>
+                <div>
+                    <select id="selMoveMode" size="3">
+                        <option selected value="0">Human</option>
+                        <option value="1">Computer</option>
+                        <option value="2">Two human</option>
+                    </select>
+                </div>
+                <div class="label">Handicap</div>
+                <div>
+                    <select id="selHandicap" style="padding:0px">
+                        <option selected value="0">None</option>
+                        <option value="1">Left horse</option>
+                        <option value="2">Two horses</option>
+                        <option value="3">Nine pieces</option>
+                    </select>
+                </div>
+                <div style="padding-top:2px"><input type="button" class="button" value="Restart" onclick="restart_click()"></div>
+                <div style="padding-top:2px"><input type="button" class="button" value="Undo" onclick="retract_click()"></div>
+                <div style="height:12px"></div>
+                <div class="label">Level</div>
+                <div>
+                    <select id="selLevel" size="3" onchange="level_change()">
+                        <option selected value="0">Beginner</option>
+                        <option value="1">Amateur</option>
+                        <option value="2">Master</option>
+                    </select>
+                </div>
+                <div style="height:12px"></div>
+                <div><input type="checkbox" class="checkbox" id="chkAnimated" checked onclick="board.animated = checked"><label for="chkAnimated">Animation</label></input></div>
+                <div><input type="checkbox" class="checkbox" id="chkSound" checked onclick="board.setSound(checked)"><label for="chkSound">Sound</label></input></div>
+                <div style="height:60px"></div>
+                <div class="label">MoveLists</div>
+                <div>
+                    <select id="selMoveList" size="10" onchange="moveList_change()">
+                        <option selected value="0">=== Start ===</option>
+                    </select>
+                </div>
+            </div>
+        </span>
+    </div>
+    <script type="text/javascript" src="book.js"></script>
+    <script type="text/javascript" src="position.js"></script>
+    <script type="text/javascript" src="search.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script type="text/javascript" src="chess.js"></script>
+</body>
+</html>
